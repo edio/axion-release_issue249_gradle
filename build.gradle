@@ -1,0 +1,19 @@
+plugins {
+    id "java"
+    id "pl.allegro.tech.build.axion-release" version "1.10.2"
+}
+
+scmVersion {
+    tag {
+        prefix = 'v'
+        deserialize = { config, position, tagName -> tagName.replaceFirst("v", "") }
+    }
+}
+
+version = scmVersion.version
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
